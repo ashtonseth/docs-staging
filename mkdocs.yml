@@ -118,9 +118,9 @@ plugins:
       separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - tags:
       tags_file: tags.md
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago
+  #- git-revision-date-localized:
+    #  enable_creation_date: true
+    #  type: timeago
   - minify:
       minify_html: true
 
