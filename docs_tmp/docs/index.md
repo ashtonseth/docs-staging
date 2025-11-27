@@ -1,17 +1,20 @@
-# docs.ashtonseth.dev | Homelab and Project Documentation
+# Homelab Network Documentation
 
-Welcome to the innerworkings of my extercurricular tinkering. Here you'll find various network design, implementation, and security practices found in my homelab environment.
+Welcome to my professional homelab network documentation. This site showcases enterprise-grade network design, implementation, and security practices applied in a home production and testing environment.
 
 ## :material-information: Overview
 
-This documentation covers a multi-segment network infrastructure designed with security, scalability, and operational best practices in mind. The environment serves as both a production home network and a learning laboratory for learning advanced networking and security concepts.
+This documentation covers a multi-segment network infrastructure designed with security, scalability, and operational best practices in mind. The environment serves as both a production home network and a learning laboratory for advanced networking and cybersecurity concepts.
+
+!!! info "Documentation Purpose"
+    This site demonstrates technical competency in network engineering, security implementation, and infrastructure automation while serving as a practical reference for ongoing projects and configurations.
 
 ## :material-network: Network Highlights
 
 ### Design Principles
 
 - **Hierarchical Addressing**: Structured IPv4 and IPv6 addressing schemes
-- **Defense in Depth**: Multiple segmented security layers
+- **Defense in Depth**: Multiple security layers with proper segmentation
 - **High Availability**: Redundant paths and services where practical
 - **Automation Ready**: Configuration management and IaC integration
 - **Monitoring First**: Comprehensive visibility into network operations
@@ -23,9 +26,9 @@ This documentation covers a multi-segment network infrastructure designed with s
 | **Routing** | BGP, OSPF, Static routing with policy-based forwarding |
 | **Switching** | VLANs, Trunking, Layer 3 switching, Port security |
 | **Security** | Firewall, IDS/IPS, VPN, Network segmentation |
-| **Virtualization** | Proxmox, Docker |
-| **Services** | DNS, DHCP, NTP, Syslog, RADIUS, NOC, SOC |
-| **Storage** | NAS, NFS, Backup infrastructure |
+| **Virtualization** | Proxmox, ESXi, Docker, Kubernetes |
+| **Services** | DNS, DHCP, NTP, Syslog, RADIUS, Monitoring |
+| **Storage** | NAS, iSCSI, NFS, Backup infrastructure |
 
 ## :material-sitemap: Architecture Overview
 
@@ -35,13 +38,12 @@ graph TB
     Modem[Cable Modem]
     FW[Firewall/Router]
     CoreSW[Core Switch]
-    DmzSW[Core Switch]
     
     Internet --> Modem
     Modem --> FW
     FW --> CoreSW
     
-    DmzSW --> DMZ[DMZ Segment 1]
+    CoreSW --> DMZ[DMZ Segment]
     CoreSW --> Server[Server VLAN]
     CoreSW --> Mgmt[Management VLAN]
     CoreSW --> User[User VLAN]
@@ -58,11 +60,7 @@ graph TB
 
 ## :material-rocket: Quick Start
 
-Browse **[Projects](projects/index.md)** to see:
-
-- Current infrastructure initiatives
-- Completed implementations with lessons learned
-- Future roadmap and planned enhancements
+### For Network Engineers
 
 Explore the **[Network Design](design/index.md)** section to review:
 
@@ -71,12 +69,22 @@ Explore the **[Network Design](design/index.md)** section to review:
 - Routing protocol implementations
 - High availability configurations
 
+### For Security Professionals
+
 Check out the **[Security](security/index.md)** section covering:
 
 - Firewall rule design and policies
 - Network segmentation strategies
 - Intrusion detection/prevention
 - VPN configurations and access control
+
+### For Lab Enthusiasts
+
+Browse **[Projects](projects/index.md)** to see:
+
+- Current infrastructure initiatives
+- Completed implementations with lessons learned
+- Future roadmap and planned enhancements
 
 ## :material-file-document: Key Documentation Sections
 
@@ -90,6 +98,13 @@ Check out the **[Security](security/index.md)** section covering:
 
     [:octicons-arrow-right-24: Explore Design](design/index.md)
 
+-   :material-server-network:{ .lg .middle } **Infrastructure**
+
+    ---
+
+    Core network equipment, services configuration, and storage architecture documentation
+
+    [:octicons-arrow-right-24: View Infrastructure](infrastructure/index.md)
 
 -   :material-shield-lock:{ .lg .middle } **Security**
 
@@ -99,6 +114,13 @@ Check out the **[Security](security/index.md)** section covering:
 
     [:octicons-arrow-right-24: Security Details](security/index.md)
 
+-   :material-cube-outline:{ .lg .middle } **Virtualization**
+
+    ---
+
+    Hypervisor configurations, container orchestration, and virtual networking setup
+
+    [:octicons-arrow-right-24: Virtual Infrastructure](virtualization/index.md)
 
 -   :material-briefcase:{ .lg .middle } **Active Projects**
 
@@ -121,26 +143,36 @@ Check out the **[Security](security/index.md)** section covering:
 ## :material-chart-line: Network Statistics
 
 !!! success "Current Metrics"
+    - **VLANs Configured**: 8 production segments
+    - **Routing Protocols**: OSPF + BGP (lab)
+    - **Firewall Rules**: 150+ with documentation
     - **Active Services**: 25+ network services
+    - **VM Count**: 40+ across hypervisors
     - **Storage Capacity**: 32TB usable (ZFS)
+    - **Uptime Target**: 99.5% for core services
 
 ## :material-timeline: Recent Updates
 
-### December 2025
-- ▶️ Planned: Project - The Great Re-Addressing
-- ▶️ Planned: Service deployment project planning
+### January 2025
+- ✅ Completed IPv6 dual-stack deployment across infrastructure
+- ✅ Implemented unified monitoring with Prometheus/Grafana
+- 🔄 In progress: Network automation with Ansible
 
-### November 2025
-- 🔄 In progress: Re-addressing project planning
-- ✅ ARIN organization & ASN request fulfilled
-- 🔄 In progress: Documentation site creation
+### December 2024
+- ✅ Deployed site-to-site VPN to secondary location
+- ✅ Migrated to Proxmox 8.x cluster
+- ✅ Enhanced firewall rules with geo-blocking
 
+### November 2024
+- ✅ Implemented VLAN segmentation for IoT devices
+- ✅ Set up centralized logging with Graylog
+- ✅ Added network traffic analysis tools
 
 ---
 
 ## :material-information-outline: About This Lab
 
-This environment is continuously evolving as new technologies are learned, tested, and integrated.
+This homelab represents an ongoing commitment to professional development in network engineering and cybersecurity. The environment is continuously evolving as new technologies are learned, tested, and integrated.
 
 **Key Learning Areas:**
 
@@ -151,6 +183,12 @@ This environment is continuously evolving as new technologies are learned, teste
 - Monitoring, logging, and observability
 - Troubleshooting and performance optimization
 
+!!! tip "Feedback Welcome"
+    This documentation is maintained as a living reference. If you have questions, suggestions, or spot areas for improvement, please feel free to reach out via the [contact page](about/contact.md).
+
+## :material-license: Documentation License
+
+This documentation is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Configuration examples and code snippets are provided as-is for educational purposes.
 
 ---
 
