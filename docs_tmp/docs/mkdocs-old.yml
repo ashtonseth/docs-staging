@@ -1,31 +1,31 @@
-site_name: docs.ashtonseth.dev
-site_url: https://ashtonseth.github.io/docs
-site_author: ashtonseth
+site_name: Homelab Network Documentation
+site_url: https://yourusername.github.io/homelab-docs/
+site_author: Your Name
 site_description: >-
-  Homelab network infrastructure documentation covering 
+  Professional homelab network infrastructure documentation covering 
   network design, security implementations, and ongoing projects
 
-repo_name: ashtonseth/docs
-repo_url: https://github.com/ashtonseth/docs
+repo_name: yourusername/homelab-docs
+repo_url: https://github.com/yourusername/homelab-docs
 edit_uri: edit/main/docs/
 
 theme:
   name: material
   palette:
-    # Dark mode
-    - scheme: slate
-      primary: blue
-      accent: blue
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-   # Light mode
+    # Light mode
     - scheme: default
-      primary: blue
-      accent: blue
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   
   features:
     - navigation.tabs
@@ -59,9 +59,9 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/ashtonseth
+      link: https://github.com/yourusername
     - icon: fontawesome/brands/linkedin
-      link: https://linkedin.com/in/ashtonseth
+      link: https://linkedin.com/in/yourprofile
   
   analytics:
     provider: google
