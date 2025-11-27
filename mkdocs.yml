@@ -1,5 +1,5 @@
 site_name: docs.ashtonseth.dev
-site_url: https://ashtonseth.github.io/docs
+site_url: https://docs.ashtonseth.dev
 site_author: ashtonseth
 site_description: >-
   Homelab network infrastructure documentation covering 
@@ -7,7 +7,7 @@ site_description: >-
 
 repo_name: ashtonseth/docs
 repo_url: https://github.com/ashtonseth/docs
-edit_uri: edit/main/docs/
+#edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -45,7 +45,7 @@ theme:
     - content.code.copy
     - content.code.annotate
     - content.action.edit
-    - content.action.view
+    #- content.action.view
   
   icon:
     repo: fontawesome/brands/github
@@ -53,7 +53,7 @@ theme:
     view: material/eye
   
   font:
-    text: Roboto
+    text: Roboto Condensed
     code: Roboto Mono
 
 extra:
@@ -127,114 +127,39 @@ plugins:
 nav:
   - Home: index.md
   
-  - Network Design:
-    - design/index.md
-    - IP Addressing:
-      - design/addressing/index.md
-      - design/addressing/ipv4-hierarchy.md
-      - design/addressing/ipv6-strategy.md
-      - design/addressing/vlan-design.md
-      - design/addressing/subnet-calculator.md
-    - Network Architecture:
-      - design/architecture/index.md
-      - design/architecture/physical-topology.md
-      - design/architecture/logical-segmentation.md
-      - design/architecture/routing-design.md
-      - design/architecture/redundancy-ha.md
-    - Security Zones:
-      - design/security-zones/index.md
-      - design/security-zones/dmz-design.md
-      - design/security-zones/internal-segmentation.md
-      - design/security-zones/guest-isolation.md
-    - Public Resources:
-      - design/public-resources/index.md
-      - design/public-resources/asn-allocation.md
-      - design/public-resources/ip-assignments.md
-      - design/public-resources/bgp-routing.md
-      - design/public-resources/rir-documentation.md
-  
-  - Infrastructure:
-    - infrastructure/index.md
-    - Core Network:
-      - infrastructure/core/index.md
-      - infrastructure/core/router-config.md
-      - infrastructure/core/switch-config.md
-      - infrastructure/core/wireless-setup.md
-    - Services:
-      - infrastructure/services/index.md
-      - infrastructure/services/dhcp-dns.md
-      - infrastructure/services/ntp-syslog.md
-      - infrastructure/services/monitoring.md
-      - infrastructure/services/backup-systems.md
-    - Storage:
-      - infrastructure/storage/index.md
-      - infrastructure/storage/nas-setup.md
-      - infrastructure/storage/backup-strategy.md
-  
-  - Security:
-    - security/index.md
-    - Firewall:
-      - security/firewall/index.md
-      - security/firewall/rule-design.md
-      - security/firewall/nat-policies.md
-      - security/firewall/vpn-config.md
-    - Network Security:
-      - security/network/index.md
-      - security/network/vlan-acls.md
-      - security/network/port-security.md
-      - security/network/dhcp-snooping.md
-    - Monitoring & Detection:
-      - security/monitoring/index.md
-      - security/monitoring/ids-ips.md
-      - security/monitoring/log-analysis.md
-      - security/monitoring/threat-hunting.md
-  
-  - Virtualization:
-    - virtualization/index.md
-    - Hypervisor Setup:
-      - virtualization/hypervisor/index.md
-      - virtualization/hypervisor/proxmox.md
-      - virtualization/hypervisor/esxi.md
-      - virtualization/hypervisor/networking.md
-    - Container Platform:
-      - virtualization/containers/index.md
-      - virtualization/containers/docker.md
-      - virtualization/containers/kubernetes.md
-      - virtualization/containers/networking.md
-  
   - Projects:
     - projects/index.md
     - Active Projects:
-      - projects/active/network-automation.md
-      - projects/active/security-lab.md
-      - projects/active/homelab-cloud.md
+      - projects/great-readdressing/index.md
     - Completed Projects:
-      - projects/completed/ipv6-deployment.md
-      - projects/completed/unified-monitoring.md
-      - projects/completed/site-to-site-vpn.md
+      - projects/managed-nms/index.md
     - Future Plans:
-      - projects/future/sdn-implementation.md
-      - projects/future/zero-trust-network.md
+      - projects/eyesight/index.md
+      - projects/soverign-storage/index.md
   
   - Knowledge Base:
     - kb/index.md
-    - Tutorials:
-      - kb/tutorials/vlan-configuration.md
-      - kb/tutorials/static-routing.md
-      - kb/tutorials/ospf-setup.md
-    - Troubleshooting:
-      - kb/troubleshooting/common-issues.md
-      - kb/troubleshooting/diagnostic-commands.md
-      - kb/troubleshooting/packet-analysis.md
-    - Reference:
-      - kb/reference/cisco-commands.md
-      - kb/reference/linux-networking.md
-      - kb/reference/protocols-ports.md
+    - IP Addressing:
+      - kb/addressing/index.md
+      - kb/addressing/ipv4-hierarchy.md
+      - kb/addressing/ipv6-strategy.md
+      - kb/addressing/subnet-calculator.md
+    - Network Architecture:
+      - kb/architecture/index.md
+      - kb/architecture/physical-topology.md
+      - kb/architecture/logical-segmentation.md
+      - kb/architecture/routing-design.md
+      - kb/architecture/redundancy-ha.md
+    - Public Resources:
+      - kb/public-resources/index.md
+      - kb/public-resources/asn-allocation.md
+      - kb/public-resources/ip-assignments.md
+      - kb/public-resources/bgp-routing.md
+      - kb/public-resources/rir-documentation.md
   
   - About:
     - about/index.md
     - Lab Evolution: about/lab-evolution.md
     - Equipment List: about/equipment.md
-    - Contact: about/contact.md
   
   - Tags: tags.md
