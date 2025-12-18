@@ -2,42 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.ashtonseth.dev/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ashtonseth.dev/about/</loc>
+         <lastmod>2025-12-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ashtonseth.dev/about/lab-evolution/</loc>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
          <loc>https://docs.ashtonseth.dev/kb/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
-         <loc>https://docs.ashtonseth.dev/kb/addressing/ipv4-heirarchy/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <loc>https://docs.ashtonseth.dev/kb/public-resources/</loc>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
-         <loc>https://docs.ashtonseth.dev/kb/public-resources/ip-assignments/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <loc>https://docs.ashtonseth.dev/kb/addressing/global-ip-hierarchy/</loc>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
          <loc>https://docs.ashtonseth.dev/projects/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
          <loc>https://docs.ashtonseth.dev/projects/eyesight/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
          <loc>https://docs.ashtonseth.dev/projects/great-readdressing/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
          <loc>https://docs.ashtonseth.dev/projects/managed-nms/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.ashtonseth.dev/projects/project-page-template/</loc>
+         <lastmod>2025-12-18</lastmod>
     </url>
     <url>
          <loc>https://docs.ashtonseth.dev/projects/soverign-storage/</loc>
-         <lastmod>2025-11-27</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.ashtonseth.dev/projects/template/</loc>
-         <lastmod>2025-11-27</lastmod>
+         <lastmod>2025-12-18</lastmod>
     </url>
 </urlset>
