@@ -44,12 +44,12 @@ theme:
     - content.tabs.link
     - content.code.copy
     - content.code.annotate
-    - content.action.edit
+    #- content.action.edit
     #- content.action.view
   
   icon:
     repo: fontawesome/brands/github
-    edit: material/pencil
+    #edit: material/pencil
     view: material/eye
   
   font:
@@ -119,7 +119,7 @@ plugins:
   - tags:
       tags_file: tags.md
   - git-revision-date-localized:
-      enable_creation_date: true
+      enable_creation_date: false
       type: timeago
   - minify:
       minify_html: true
@@ -130,32 +130,20 @@ nav:
   - Projects:
     - projects/index.md
     - Active Projects:
-      - projects/great-readdressing/index.md
+      - projects/great-readdressing.md
     - Completed Projects:
-      - projects/managed-nms/index.md
+      - projects/managed-nms.md
     - Future Plans:
-      - projects/eyesight/index.md
-      - projects/soverign-storage/index.md
+      - projects/eyesight.md
+      - projects/soverign-storage.md
   
   - Knowledge Base:
     - kb/index.md
     - IP Addressing:
-      - kb/addressing/index.md
-      - kb/addressing/ipv4-hierarchy.md
-      - kb/addressing/ipv6-strategy.md
+      - kb/addressing/global-ip-heierarchy.md
       - kb/addressing/subnet-calculator.md
-    - Network Architecture:
-      - kb/architecture/index.md
-      - kb/architecture/physical-topology.md
-      - kb/architecture/logical-segmentation.md
-      - kb/architecture/routing-design.md
-      - kb/architecture/redundancy-ha.md
-    - Public Resources:
-      - kb/public-resources/index.md
-      - kb/public-resources/asn-allocation.md
-      - kb/public-resources/ip-assignments.md
-      - kb/public-resources/bgp-routing.md
-      - kb/public-resources/rir-documentation.md
+#    - Public Resources:
+#      - kb/public-resources/index.md
   
   - About:
     - about/index.md
