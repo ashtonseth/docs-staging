@@ -18,26 +18,13 @@ This document outlines the IPv4 addressing strategy for managed environments, fo
 The entire allocation divides the 192.168.0.0/16 RFC 1918 space into /20 per site:
 
 ```
-192.168.0.0/16 - Residential Master Block - TIER 0 
+192.168.0.0/16 - Residential Allocation - TIER 0 
 ├── 192.168.0.0/17   - Primary Residential - TIER 1
-├──── 192.168.0.0/20  - Site #1 - LAX - TIER 2
-├────── 192.168.0.0/24  - Native VLAN (Onboarding/Quarantine) - TIER 3
-├────── 192.168.1.0/24  - Management
-├────── 192.168.2.0/24  - Trusted Devices
-├────── 192.168.3.0/24  - Smart Home / IoT
-├────── 192.168.4.0/24  - Guest
-├────── 192.168.#.0/24  - ...
-├────── 192.168.7.0/24  - Reserved for Special Use Smaller Segments
+├──── 192.168.0.0/20  - Site #1 - TIER 2
+├────── 192.168.0.0/21  - Active Allocation - TIER 3
 ├────── 192.168.8.0/21  - Reserved for Expansion
-├──── 192.168.16.0/20  - Site #2 - SJC
-├────── 192.168.16.0/24  - Native VLAN (Onboarding/Quarantine)
-├────── 192.168.17.0/24  - Management
-├────── 192.168.18.0/24  - Trusted Devices
-├────── 192.168.19.0/24  - Smart Home / IoT
-├────── 192.168.20.0/24  - Guest
-├────── 192.168.21.0/24  - Lab
-├────── 192.168.#.0/24  - ...
-├────── 192.168.23.0/24  - Reserved for Special Use Smaller Segments
+├──── 192.168.16.0/20  - Site #2
+├────── 192.168.16.0/21  - Active Allocation
 ├────── 192.168.24.0/21  - Reserved for Expansion
 ├──── 192.168.32.0/20  - Site #3
 ├──── 192.168.48.0/20  - Site #4
@@ -53,18 +40,67 @@ The entire allocation divides the 192.168.0.0/16 RFC 1918 space into /20 per sit
 
 ---
 
-## VLAN to Subnet Mapping
+#### Site VLAN to /24 Subnet Mapping
 
-| VLAN ID | Subnet | Purpose | Gateway |
-|---------|--------|---------|---------|
-| 1 | 192.168.0.0/24 | Default VLAN | 192.168.0.1 |
-| 11 | 192.168.1.0/24 | Management | 192.168.1.1 |
-| 12 | 192.168.2.0/24 | Trusted Devices | 192.168.2.1 |
-| 13 | 192.168.3.0/24 | Smart Home/IoT | 192.168.3.1 |
-| 14 | 192.168.4.0/24 | Guest | 192.168.4.1 |
-| 15-16 | 192.168.5.0/24 | Reserved for future use | 192.168.5.1 |
-| 15-16 | 192.168.6.0/24 | Reserved for future use | 192.168.6.1 |
-| # | 192.168.7.0/24 | Reserved for Smaller Segments | 192.168.7.# |
+| VLAN ID | Subnet | Purpose | Gateway | Security Zone |
+|---------|--------|---------|---------|---------|
+| 1 | [SUBNET #1] | Default VLAN | 192.168.#.1 | DMZ |
+| [O3] + 10 | 192.168.[O3].0/24 | VLAN ID Logic | 192.168.[O3].1 | [Zone] |
+| # | [SUBNET #2-7] | Function | 192.168.#.1 | Internal |
+| # | [SUBNET #8] | Reserved for Smaller Segments | 192.168.#.1 | -- |
+| # | [SUBNET #9-16] | Reserved for Site Expansion | 192.168.#.1 | -- |
+---
+
+#### Allocated Sites
+
+##### 192.168.0.0/20 - Site #1 - LAX
+```
+├── 192.168.0.0/21   - Active Allocation
+├──── 192.168.0.0/24  - Native VLAN (Onboarding/Quarantine)
+├──── 192.168.1.0/24  - Management
+├──── 192.168.2.0/24  - Trusted Devices
+├──── 192.168.3.0/24  - Smart Home / IoT
+├──── 192.168.4.0/24  - Guest
+├──── 192.168.5.0/24  - Reserved for future use
+├──── 192.168.6.0/24  - Reserved for future use
+├──── 192.168.7.0/24  - Reserved for Special Use Smaller Segments
+├── 192.168.8.0/21   - Reserved for Expanision
+```
+| VLAN ID | Subnet | Purpose | Gateway | Security Zone |
+|---------|--------|---------|---------|---------|
+| 1 | 192.168.0.0/24 | Default VLAN | 192.168.0.1 | DMZ |
+| 11 | 192.168.1.0/24 | Management | 192.168.1.1 | Internal |
+| 12 | 192.168.2.0/24 | Trusted Devices | 192.168.2.1 | Internal |
+| 13 | 192.168.3.0/24 | Smart Home/IoT | 192.168.3.1 | Untrusted |
+| 14 | 192.168.4.0/24 | Guest | 192.168.4.1 | Untrusted |
+| 15 | 192.168.5.0/24 | Reserved for future use | 192.168.5.1 | -- |
+| 16 | 192.168.6.0/24 | Reserved for future use | 192.168.6.1 | -- |
+| # | 192.168.7.0/24 | Reserved for Smaller Segments | 192.168.7.# | -- |
+---
+
+##### 192.168.46.0/20 - Site #1 - SJC
+```
+├── 192.168.16.0/21   - Active Allocation
+├──── 192.168.16.0/24  - Native VLAN (Onboarding/Quarantine)
+├──── 192.168.17.0/24  - Management
+├──── 192.168.18.0/24  - Trusted Devices
+├──── 192.168.19.0/24  - Smart Home / IoT
+├──── 192.168.20.0/24  - Guest
+├──── 192.168.21.0/24  - Existing LAN - 4 x /26
+├──── 192.168.22.0/24  - Reserved for future use
+├──── 192.168.23.0/24  - Reserved for Special Use Smaller Segments
+├── 192.168.24.0/21   - Reserved for Expanision
+```
+| VLAN ID | Subnet | Purpose | Gateway | Security Zone |
+|---------|--------|---------|---------|---------|
+| 1 | 192.168.16.0/24 | Default VLAN | 192.168.16.1 | DMZ |
+| 27 | 192.168.17.0/24 | Management | 192.168.17.1 | Internal |
+| 28 | 192.168.18.0/24 | Trusted Devices | 192.168.18.1 | Internal |
+| 29 | 192.168.19.0/24 | Smart Home/IoT | 192.168.19.1 | Untrusted |
+| 30 | 192.168.20.0/24 | Guest | 192.168.20.1 | Untrusted |
+| 31 | 192.168.21.0/24 | Existing LAN | 192.168.21.[NET + 10] | Internal |
+| 32 | 192.168.22.0/24 | Reserved for future use | 192.168.22.1 | -- |
+| # | 192.168.23.0/24 | Reserved for Smaller Segments | 192.168.7.# | -- |
 ---
 
 ### Corporate Allocation - 10.0.0.0/8 corp.ashton.bz
@@ -72,6 +108,13 @@ The entire allocation divides the 192.168.0.0/16 RFC 1918 space into /20 per sit
 The entire homelab uses a /16 block from the 10.0.0.0/8 RFC 1918 space:
 
 ```
+10.0.0.0/8 - Corporate Allocation - TIER 0 
+├── 10.0.0.0/10   - Production Block - TIER 1
+├── 10.64.0.0/10   - Development Block
+├── 10.128.0.0/10   - Staging / Testing
+└── 10.192.0.0/10   - DMZ / Edge
+
+
 10.0.0.0/8 - Homelab Master Block
 ├── 10.0.0.0/20   - Infrastructure & Transit
 ├── 10.0.16.0/20  - Management & Monitoring
