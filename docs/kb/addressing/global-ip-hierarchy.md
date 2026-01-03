@@ -103,28 +103,31 @@ The entire allocation divides the 192.168.0.0/16 RFC 1918 space into /20 per sit
 | # | 192.168.23.0/24 | Reserved for Smaller Segments | 192.168.7.# | -- |
 ---
 
-### Corporate Allocation - 10.0.0.0/8 corp.ashton.bz
+### Global Homelab Allocation - 10.0.0.0/8 prod.ashton.bz
 
-The entire homelab uses a /16 block from the 10.0.0.0/8 RFC 1918 space:
+The entire allocation divides 10.0.0.0/8 RFC 1918 space in /18 per site:
 
 ```
 10.0.0.0/8 - Corporate Allocation - TIER 0 
 ├── 10.0.0.0/10   - Production Block - TIER 1
+├──── 10.0.0.0/11 - Physical Sites - TIER 2
+├────── 10.0.0.0/14 - Global Services - TIER 3
+├────── 10.0.0.0/16 - Region # - TIER 4
+├──────── 10.0.0.0/18 - Site # - TIER 5
+├────── 10.4.0.0/14 - North America
+├────── 10.8.0.0/14 - LATAM
+├────── 10.12.0.0/14 - EMEA
+├────── 10.16.0.0/12 - Reserved for Future Growth
+├──── 10.32.0.0/11 - Cloud Sites
+├────── 10.32.0.0/14 - AWS
+├────── 10.36.0.0/14 - Linode
+├────── 10.40.0.0/14 - Azure
+├────── 10.44.0.0/14 - Google Gloud
+├────── 10.48.0.0/12 - Reserved for Future Growth
 ├── 10.64.0.0/10   - Development Block
 ├── 10.128.0.0/10   - Staging / Testing
 └── 10.192.0.0/10   - DMZ / Edge
 
-
-10.0.0.0/8 - Homelab Master Block
-├── 10.0.0.0/20   - Infrastructure & Transit
-├── 10.0.16.0/20  - Management & Monitoring
-├── 10.0.32.0/19  - User & Client Networks
-├── 10.0.64.0/19  - Server Networks
-├── 10.0.96.0/20  - DMZ & External Services
-├── 10.0.112.0/20 - IoT & Smart Home
-├── 10.0.128.0/20 - Guest Networks
-├── 10.0.144.0/20 - Lab & Testing
-└── 10.0.160.0/19 - Reserved for Expansion
 ```
 
 ---
